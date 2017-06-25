@@ -1,0 +1,50 @@
+group 'by.botyanov.examis'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+//        classpath 'net.eikehirsch.react:gradle-react-plugin:0.4.1'
+
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+//apply plugin: 'net.eikehirsch.react'
+//
+//jsx {
+//    sourcesDir = 'src/main/resources/static/react'
+//    destDir    = 'build/resources/main/static/react'
+//    // optional
+//    options {
+//        extension = 'jsx' // js is the default extension
+//    }
+//}
+
+//processResources.dependsOn jsx
+
+jar {
+    baseName = 'gs-spring-boot'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+//    compile("org.springframework.boot:spring-boot-devtools") TODO
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-zuul', version: '1.3.1.RELEASE'
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:twitter="http://www.springframework.org/schema/integration/twitter"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/integration/twitter http://www.springframework.org/schema/integration/twitter/spring-integration-twitter-2.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="by.botyanov.examis"/>
+
+    <!--<context:property-placeholder location="classpath:application.properties" order="1" ignore-unresolvable="true"/>-->
+
+    <!--<bean id="twitterTemplate" class="org.springframework.social.twitter.api.impl.TwitterTemplate">-->
+        <!--<constructor-arg value="${twitter.consumerKey}"/>-->
+        <!--<constructor-arg value="${twitter.consumerSecret}"/>-->
+        <!--<constructor-arg value="${twitter.accessToken}"/>-->
+        <!--<constructor-arg value="${twitter.accessTokenSecret}"/>-->
+    <!--</bean>-->
+
+    <!--<int:channel id="twitterInbound"/>-->
+
+    <!--<twitter:search-inbound-channel-adapter id="tweets" channel="twitterInbound"-->
+                                            <!--query="#ЕГЭ" twitter-template="twitterTemplate">-->
+        <!--<int:poller fixed-rate="5000" max-messages-per-poll="5"/>-->
+    <!--</twitter:search-inbound-channel-adapter>-->
+
+    <!--<int:transformer-->
+            <!--input-channel="twitterInbound"-->
+            <!--expression="new by.botyanov.examis.entity.TwitterMessage(payload)"-->
+            <!--output-channel="transformedTweets"/>-->
+
+    <!--<int:service-activator input-channel="transformedTweets" ref="twitterMessageConsumer"/>-->
+
+</beans>

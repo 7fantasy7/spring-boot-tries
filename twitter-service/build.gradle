@@ -1,0 +1,38 @@
+group 'by.botyanov.examis'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'gs-spring-boot'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-integration', version: '1.5.4.RELEASE'
+    compile("org.springframework.integration:spring-integration-twitter:4.0.3.RELEASE")
+    compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
+    compile group: 'net.java.dev.jna', name: 'jna', version: '3.5.0'
+
+    compileOnly('org.projectlombok:lombok')
+}
